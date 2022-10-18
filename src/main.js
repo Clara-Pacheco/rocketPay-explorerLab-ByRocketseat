@@ -1,6 +1,8 @@
 import "./css/index.css"
 
 const ccBgColor01 = document.querySelector(".cc-bg svg > g g:nth-child(1) path")
+const ccBgColor02 = document.querySelector(".cc-bg svg > g g:nth-child(2) path")
+const ccLogo = document.querySelector(".cc-logo span:nth-child(2) img")
 
 // querySelector = busca pelo seletor - entre aspas, colocamos qual seletor queremos buscar;
 // O selector que queremos pegar, o primeiro path do svg com a cor fill black, encontra-se
@@ -27,9 +29,24 @@ const ccBgColor01 = document.querySelector(".cc-bg svg > g g:nth-child(1) path")
 // setAttribute, que recebe 2 argumentos: o primeiro é o nome do atributo que queremos
 // alterar/atualizar/modificar, e o segundo é a cor que queremos atualizar.
 
-ccBgColor01.setAttribute("fill", "green")
+// Vamos fazer uma estrutura de dados (objeto) para as cores
 
-// Agora faremos o mesmo para a segunda cor:
+function setCardType(type) {
+  const colors = {
+    visa: ["#436D99", "#2D57F2"],
+    mastercard: ["#DF6F29", "#C69347"],
+    americanExpress: ["#C503B1", "#C6476D"],
+    elo: ["#FF6E06", "#101419"],
+    default: ["black", "gray"],
+  }
 
-const ccBgColor02 = document.querySelector(".cc-bg svg > g g:nth-child(2) path")
-ccBgColor02.setAttribute("fill", "blue")
+  ccBgColor01.setAttribute("fill", colors[type][0])
+  ccBgColor02.setAttribute("fill", colors[type][1])
+  ccLogo.setAttribute("src", `cc-${type}.svg`)
+}
+
+setCardType("mastercard")
+
+// Para colocarmos a função global:
+
+globalThis.setCardType = setCardType
