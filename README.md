@@ -1,8 +1,6 @@
 <h1 align="center"> Explorer Lab #01 </h1>
 
-<p align="center">
-  <img alt="explorer-lab" src= "notion://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0cd17d2b-7b02-4a05-bbdb-3cf012e213bc%2FIDV-Explorer-Lab.jpg?table=block&id=cbc05665-ca16-4cd6-bac2-1185cc2d38c8&spaceId=31bedb59-7e64-4c39-b3d2-5af11b48bbb4&width=2000&userId=b955c457-0d45-4e96-9594-e3b578bfc105&cache=v2" width="100%">
-</p>
+![Explorer Lab Javascript](https://github.com/Clara-Pacheco/rocketPay-explorerLabByRocketseat/blob/main/images/14_-Explorer-Lab-JS-DOM-_-Abertura-do-evento-YouTube-Google-Chrome-2022-10-18-06-50-31.gif)
 
 <p align="center">
 Evento exclusivo e gratuito, promovido pela Rocketseat para ensino de tecnologias WEB.
