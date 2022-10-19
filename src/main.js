@@ -61,11 +61,9 @@ const securityCode = document.querySelector("#security-code")
 // 2- Fazer o padrão da mask
 
 const securityCodePattern = {
-  mask: "0000"
+  mask: "0000",
 }
 
 // 3- Security Code passando pelo IMask
 
 const securityCodeMasked = IMask(securityCode, securityCodePattern)
-
-
