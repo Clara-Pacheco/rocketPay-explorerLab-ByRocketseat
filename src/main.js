@@ -145,9 +145,7 @@ Regex para cartão visa: /^4\d{0,15}/
 
 Inicia com 4: ^4,
 Seguido de 0 até 15 dígitos (mínimo e máximo): \d{0,15}
-*/
 
-/*
 Regex para cartão master: /(^5[1-5]\d{0,2}|^22[2-9]\d{0,1}|^2[3-7]\d{0,2})\d{0,12}/
 
 Inicia com 5: ^5,
@@ -168,8 +166,6 @@ variar entre 0 e 12: \d{0,12}.
 Se a verificação do número não passar em qualquer um dos 'ou', significa que não 
 é um cartão mastercard.
 
-*/
-
 /*
 A função no find() poderia ser passada da seguinte forma:
 ({regex}) => number.match(regex)
@@ -179,6 +175,64 @@ parâmetro a propriedade regex de cada objeto do array.
 3- Quando a arrow function retorna somente 1 linha, não precisamos usar a palavra
 return, podemos colocar o retorno direto;
 4 - Se o número passado der match com a propriedade do objeto de cada cartão, quer dizer
-que temos o cartão certo.
+que temos o cartão certo. */
 
-*/
+const addButton = document.querySelector("#add-card")
+addButton.addEventListener("click", () => {
+  console.log("Opa,você clicou no botão!")
+})
+
+// Desativando o "reload" do submit
+// Quando o evento de "submit"(enviar o formulário) acontecer, pega esse evento e
+// não deixe que aconteça o comportamento padrão ( recarregar a página). Dessa forma,
+// a página não será recarregada e a mensagem do console log acima não irá desaparecer.
+
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault()
+})
+
+const cardHolder = document.querySelector("#card-holder")
+cardHolder.addEventListener("input", () => {
+  const ccHolder = document.querySelector(".cc-holder .value")
+  ccHolder.innerHTML =
+    cardHolder.value.length === 0 ? "Fulano da Silva" : cardHolder.value
+})
+
+// o "on" segue a mesma lógica do addEventListener. Ele vai ficar observando o conteúdo
+// desse input. Se for aceito - "accept" (ou seja, atende as regras definidas pela
+// própria máscara), dispara a função para fazer a troca do conteúdo
+// de exemplo para o cvc do cliente:
+
+securityCodeMasked.on("accept", () => {
+  updateSecurityCode(securityCodeMasked.value)
+})
+
+function updateSecurityCode(code) {
+  const ccSecurity = document.querySelector(".cc-security .value")
+  ccSecurity.innerText = code.length === 0 ? "123" : code
+}
+
+cardNumberMasked.on("accept", () => {
+  updateCardNumber(cardNumberMasked.value)
+})
+
+function updateCardNumber(card) {
+  const ccCardNumber = document.querySelector(".cc-info .cc-number")
+  ccCardNumber.innerText = card.length === 0 ? "1234 5678 9012 3456" : card
+}
+
+expirationDateMasked.on("accept", ()=>{
+  updateExpirationDate(expirationDateMasked.value)
+})
+
+function updateExpirationDate(date){
+  const expirationDate = document.querySelector(".cc-extra .cc-expiration .value")
+  expirationDate.innerText = date.length === 0 ? "02/30" : date
+}
+
+
+
+// Evento de
+//"click",
+//"submit",
+// "input"
