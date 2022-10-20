@@ -38,6 +38,7 @@ function setCardType(type) {
     mastercard: ["#DF6F29", "#C69347"],
     americanExpress: ["#C503B1", "#C6476D"],
     elo: ["#FF6E06", "#101419"],
+    nubank: ["#8A05BE", "#FFFFFF"],
     default: ["black", "gray"],
   }
 
