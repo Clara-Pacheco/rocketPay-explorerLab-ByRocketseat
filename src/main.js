@@ -47,8 +47,6 @@ function setCardType(type) {
   ccLogo.setAttribute("src", `cc-${type}.svg`)
 }
 
-setCardType("mastercard")
-
 // Para colocarmos a função global:
 
 globalThis.setCardType = setCardType
@@ -214,7 +212,10 @@ function updateSecurityCode(code) {
 }
 
 cardNumberMasked.on("accept", () => {
+   const cardType = cardNumberMasked.masked.currentMask.cardtype
+   setCardType(cardType)
   updateCardNumber(cardNumberMasked.value)
+ 
 })
 
 function updateCardNumber(card) {
@@ -222,16 +223,16 @@ function updateCardNumber(card) {
   ccCardNumber.innerText = card.length === 0 ? "1234 5678 9012 3456" : card
 }
 
-expirationDateMasked.on("accept", ()=>{
+expirationDateMasked.on("accept", () => {
   updateExpirationDate(expirationDateMasked.value)
 })
 
-function updateExpirationDate(date){
-  const expirationDate = document.querySelector(".cc-extra .cc-expiration .value")
+function updateExpirationDate(date) {
+  const expirationDate = document.querySelector(
+    ".cc-extra .cc-expiration .value"
+  )
   expirationDate.innerText = date.length === 0 ? "02/30" : date
 }
-
-
 
 // Evento de
 //"click",
